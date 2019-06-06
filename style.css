@@ -2,16 +2,16 @@ body{
     margin: 0;
     display: grid;
     grid-template-areas: 'navbar navbar navbar navbar'
-                        'header header header header'
-                        'section section section section'
+                        'header section aside div'
                         'footer footer footer footer';
-grid-template-rows: 20vh 30vh 60vh 40vh;
-grid-gap: 10px;
+grid-template-rows: 20vh 70vh 40vh;
+grid-gap: 0px;
 }
 nav{
     align-items: center;
-    background-color:white;
+    background-color: rgb(235, 78, 78);
     display: flex;
+    grid-area: navbar;
     justify-content: space-around;
 }
 
@@ -19,7 +19,7 @@ nav{
 img{
     cursor: pointer;
     display: none;
-    height: 25px;
+    height: 50px;
 }
 
 header{
@@ -37,24 +37,47 @@ aside{
     background-color: orange;
 }
 
+div{
+    background-color: tomato;
+    grid-area: div;
+}
+
 footer{
     grid-area: footer;
     background-color: magenta;
 }
 
 @media(max-width:769px){
+    body{
+        grid-template-areas: 'navbar navbar navbar navbar'
+                            'header headersection section '
+                            'aside aside div div'
+                            'footer footer footer footer';
+grid-template-rows: 20vh 30vh 70vh 40vh;
+grid-gap: 0px;                           
+
+}
+   
     nav a{
         display: none;
-}
-
-@media(max-width:600px){
-    img{
-        cursor: pointer;
-        display: none;
-
     }
 
     nav img{
        display: block;
     }
 }
+
+
+@media(max-width:475px){
+    body{
+        grid-template-areas: 'navbar navbar navbar navbar'
+                            'header header header header'
+                            'section section section section'
+                            'aside aside aside aside'
+                            'div div div div'
+                            'footer footer footer footer';
+grid-template-rows: 20vh 50vh 50vh 50vh 40vh;
+}
+}
+
+    
